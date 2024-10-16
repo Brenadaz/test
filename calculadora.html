@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Plan Money</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Menu de navegação -->
+    <nav>
+        <div class="logo">
+            <img src="PLAN MONEY.png" alt="Logo do Plan Money" />
+        </div>
+        <ul>
+            <li><a href="index.html">Sobre o Plan Money</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="calculadora.html">Calculadora</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo da página da calculadora -->
+    <div class="container">
+        <h1>Calculadora de Finanças</h1>
+        
+        <label for="tipo-calculadora">Escolha o tipo de cálculo:</label>
+        <select id="tipo-calculadora" onchange="toggleCalculator()">
+            <option value="juros">Juros Compostos</option>
+            <option value="mensal">Investimento Mensal</option>
+            <option value="orcamento">Planejador de Orçamento</option> <!-- Nova opção -->
+        </select>
+
+        <div class="calculator" id="juros-calculator">
+            <div class="display" id="resultado-display">R$ 0.00</div>
+
+            <div class="input-group">
+                <label for="valor-inicial">Valor Inicial (R$):</label>
+                <input type="number" id="valor-inicial" placeholder="Digite o valor inicial" />
+            </div>
+
+            <div class="input-group">
+                <label for="taxa-juros">Taxa de Juros (% ao mês):</label>
+                <input type="number" id="taxa-juros" placeholder="Digite a taxa de juros" />
+            </div>
+
+            <div class="input-group">
+                <label for="numero-meses">Número de Meses:</label>
+                <input type="number" id="numero-meses" placeholder="Digite o número de meses" />
+            </div>
+
+            <button class="button" onclick="calcularJuros()">Calcular Investimento</button>
+        </div>
+
+        <div class="calculator" id="mensal-calculator" style="display:none;">
+            <div class="display" id="resultado-mensal-display">R$ 0.00</div>
+
+            <div class="input-group">
+                <label for="valor-mensal">Valor Mensal (R$):</label>
+                <input type="number" id="valor-mensal" placeholder="Digite o valor mensal" />
+            </div>
+
+            <div class="input-group">
+                <label for="taxa-mensal">Taxa de Juros (% ao mês):</label>
+                <input type="number" id="taxa-mensal" placeholder="Digite a taxa de juros" />
+            </div>
+
+            <div class="input-group">
+                <label for="numero-meses-mensal">Número de Meses:</label>
+                <input type="number" id="numero-meses-mensal" placeholder="Digite o número de meses" />
+            </div>
+
+            <button class="button" onclick="calcularInvestimentoMensal()">Calcular Total</button>
+        </div>
+
+        <!-- Planejador de Orçamento -->
+        <div class="calculator" id="orcamento-calculator" style="display:none;">
+            <h2>Planejador de Orçamento</h2>
+            <div class="display" id="resultado-orcamento-display">R$ 0.00</div> <!-- Moved display up -->
+
+            <div class="input-group">
+                <label for="renda-mensal">Renda Mensal (R$):</label>
+                <input type="number" id="renda-mensal" placeholder="Digite sua renda mensal" />
+            </div>
+
+            <div class="input-group">
+                <label for="despesas-fixas">Despesas Fixas (R$):</label>
+                <input type="number" id="despesas-fixas" placeholder="Digite suas despesas fixas" />
+            </div>
+
+            <div class="input-group">
+                <label for="despesas-variaveis">Despesas Variáveis (R$):</label>
+                <input type="number" id="despesas-variaveis" placeholder="Digite suas despesas variáveis" />
+            </div>
+
+            <button class="button" onclick="calcularOrcamento()">Calcular Orçamento</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
